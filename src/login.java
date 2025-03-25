@@ -128,17 +128,18 @@ public class login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        
-       if (jPasswordField1.getPassword().equals("adminMNS") && 
-           jTextField1.getText().equals("adminMNS")){
-       setVisible(false);;
-       new home().setVisible(true);
-//           JOptionPane.showConfirmDialog(null, "Thanks for Login");
-       
-   }
-   
-   else {
-       JOptionPane.showMessageDialog(null, "INVALID USERNAME OR PASSWORD!");
-   }
+         String password = new String(jPasswordField1.getPassword()); // Convert char[] to String
+    String username = jTextField1.getText();
+        
+    if (password.equals("admin") && username.equals("admin")) {
+        setVisible(false);
+        new home().setVisible(true);
+        JOptionPane.showMessageDialog(null, "Thanks for Login");
+    } else {
+        JOptionPane.showMessageDialog(null, "INVALID USERNAME OR PASSWORD!");
+    }
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
