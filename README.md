@@ -29,6 +29,4 @@ Follow the steps below to set up the project locally:
 ### 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/Library-Management-System.git
-
-
-Simply copy and paste this into a `README.md` file, and you'll be ready to go! Let me know if you'd like any adjustments.
+ 
