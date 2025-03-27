@@ -63,7 +63,7 @@ public class login extends javax.swing.JFrame {
         jLabel1.setText("Username");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, 110, -1));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 255));
+        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -102,7 +102,7 @@ public class login extends javax.swing.JFrame {
         jLabel7.setText(" ");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, -1, -1));
 
-        jPasswordField1.setBackground(new java.awt.Color(204, 204, 255));
+        jPasswordField1.setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 140, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/try.png"))); // NOI18N
