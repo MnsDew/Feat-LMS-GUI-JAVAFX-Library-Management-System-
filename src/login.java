@@ -37,31 +37,32 @@ public class login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 255));
+        jButton1.setBackground(new java.awt.Color(102, 0, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/close .png"))); // NOI18N
         jButton1.setText("Cancel");
+        jButton1.setPreferredSize(new java.awt.Dimension(85, 35));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 530, 90, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 520, 90, 30));
 
         jLabel1.setBackground(new java.awt.Color(51, 0, 153));
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 153));
         jLabel1.setText("Username");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, 110, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, 110, -1));
 
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -69,45 +70,42 @@ public class login extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 420, 140, 30));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 430, 140, 30));
 
         jLabel2.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 0, 153));
         jLabel2.setText("Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, 100, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 470, 100, -1));
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 255));
+        jButton2.setBackground(new java.awt.Color(102, 0, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/loggii.png"))); // NOI18N
         jButton2.setText("login");
+        jButton2.setPreferredSize(new java.awt.Dimension(85, 35));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 530, 90, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 520, 90, 30));
 
-        jLabel5.setBackground(new java.awt.Color(102, 102, 255));
-        jLabel5.setFont(new java.awt.Font("Segoe Script", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/account.png"))); // NOI18N
-        jLabel5.setText("Welcome to MNS Library System ");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 330, -1, -1));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/close.png"))); // NOI18N
-        jLabel6.setText(" ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 530, 30, 30));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/enter.png"))); // NOI18N
-        jLabel7.setText(" ");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, -1, -1));
+        jLabel5.setBackground(new java.awt.Color(102, 0, 255));
+        jLabel5.setFont(new java.awt.Font("Script MT Bold", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Welcome to LibroTrack, Library Managemnt System ");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
 
         jPasswordField1.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 140, 30));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 470, 140, 30));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/try.png"))); // NOI18N
-        jLabel3.setText("1");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, -1, -1));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/logo-grayscale.png"))); // NOI18N
+        jLabel6.setText("-");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 300, 110));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/loginCard.png"))); // NOI18N
+        jLabel7.setText("l");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/libraryy.jpg"))); // NOI18N
         jLabel4.setText("k");
@@ -182,7 +180,6 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
