@@ -1,23 +1,43 @@
-/*
+
+import java.sql.*;
+import java.sql.SQLException;/*
+import javax.swing.JFrame;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import javax.swing.JOptionPane;
+import BackEnd.DatabaseConnectionFactory;
+import BackEnd.IDatabaseConnection;
+ 
 
 /**
  *
  * @author mnsso
  */
-public class newStudent extends javax.swing.JFrame {
+
+public class newBook extends javax.swing.JFrame {
 
     /**
-     * Creates new form AddNewStudent
+     * Creates new form AddNewBook
      */
-    public newStudent() {
+    public newBook() {
         initComponents();
            this.setLocationRelativeTo(null);
         setExtendedState(ABORT);
+       
+ 
         
       
+    }
+     public void emptier () {
+        // Clear all input fields
+    jTextField2.setText("");  
+    jTextField3.setText("");   
+    jTextField4.setText("");   
+    jTextField1.setText("");   
+     jTextField5.setText(""); 
+    
+
     }
 
     /**
@@ -34,9 +54,7 @@ public class newStudent extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -46,64 +64,59 @@ public class newStudent extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusTraversalPolicyProvider(true);
-        setLocation(new java.awt.Point(525, 200));
-        setMaximumSize(null);
+        setLocation(new java.awt.Point(700, 550));
         setUndecorated(true);
-        setSize(new java.awt.Dimension(750, 400));
+        setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Student ID ");
+        jLabel6.setText("Book ID ");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 168, -1));
 
         jTextField2.setBackground(new java.awt.Color(51, 51, 51));
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 180, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Student Name");
+        jLabel1.setText("Book Name");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Student Surename");
+        jLabel2.setText("Publisher");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 190, -1));
 
         jTextField3.setBackground(new java.awt.Color(51, 51, 51));
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, 180, -1));
 
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Software Engineering ", "Computer Engineering" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 180, -1));
-
         jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Department");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, 409, -1));
-
-        jComboBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SWE ", "MATH", "CE" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, 180, -1));
+        jLabel3.setText("Price");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 150, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("COURSE CODE");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 120, -1));
+        jLabel4.setText("Publishment Year");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 150, -1));
 
         jTextField4.setBackground(new java.awt.Color(51, 51, 51));
         jTextField4.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,23 +132,29 @@ public class newStudent extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/add-userr.png"))); // NOI18N
         jButton1.setText("Save");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, 100, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 100, 40));
 
         jButton2.setBackground(new java.awt.Color(102, 0, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/close .png"))); // NOI18N
         jButton2.setText("Cancel");
+        jButton2.setPreferredSize(new java.awt.Dimension(96, 43));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 110, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 100, 40));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/add-friend.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/BBOKYBOOK.png"))); // NOI18N
         jLabel7.setText("l");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 150, 140));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 150, 140));
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 153));
         jPanel1.setAlignmentY(8.0F);
@@ -145,40 +164,59 @@ public class newStudent extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+            .addGap(0, 3, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, -120, 10, 680));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, -1, 620));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("ADD NEW STUDENT");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+        jLabel8.setText("ADD NEW BOOK");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 13)); // NOI18N
-        jLabel9.setText("Please Fill All The Fields, To Save The Student Inofrmation Correctly ! ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 430, 20));
+        jLabel9.setText("Please Fill All The Fields, To Save The Book Inofrmation Correctly ! ");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 440, 20));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/try.png"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 360, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 360, -1));
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
+        jLabel11.setText("All information will be saved...");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jTextField1.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 180, -1));
+
+        jTextField5.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, 180, -1));
+
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/bookwhiter.png"))); // NOI18N
+        jLabel12.setText("-");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 80, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -160, 1190, 720));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, -240, 1210, 900));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
@@ -186,8 +224,69 @@ public class newStudent extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         setVisible(false);
-        new home().setVisible(true);
+//        new home().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+        String bookID=jTextField2.getText();
+        String BookName=jTextField3.getText();
+        String Publisher=jTextField4.getText();
+        double Price = 0.0;
+try {
+    Price = Double.parseDouble(jTextField1.getText());
+} catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(null, "Invalid price. Please enter a valid number.");
+}
+       String publishmentYear = jTextField5.getText();
+                  try {
+
+                         IDatabaseConnection connectionBook = DatabaseConnectionFactory.getConnection("MYSQL");
+                     connectionBook.connect();
+                      
+      // I used this method to be strong connection without any hacking or attaking 
+      
+      // Use PreparedStatement to prevent SQL injection!!!
+      //insert into book not student or other table!!
+      
+        String sql = "INSERT INTO book (bookID, BookName, Publisher, Price, publishmentYear) VALUES (?, ?, ?, ?, ?)";
+        
+        PreparedStatement stmt = connectionBook.getConnection().prepareStatement(sql);
+        stmt.setString(1, bookID);
+        stmt.setString(2, BookName);
+        stmt.setString(3, Publisher);
+        stmt.setDouble(4, Price);
+        stmt.setString(5, publishmentYear);
+
+        // Execute the insert query
+        int rowsInserted = stmt.executeUpdate();
+        if (rowsInserted > 0) {
+            JOptionPane.showMessageDialog(null, "Book added successfully!");
+             emptier(); // to empty all fields
+        } else {
+            JOptionPane.showMessageDialog(null, "Error adding Book.");
+        }
+
+        // Close resources
+        stmt.close();
+        connectionBook.disconnect();
+        
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage());
+         JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage());
+  
+
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,13 +305,13 @@ public class newStudent extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(newStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(newStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(newStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(newStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -220,7 +319,9 @@ public class newStudent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new newStudent().setVisible(true);
+                new newBook().setVisible(true);
+                 //Get the database connection based on your requrements!!
+               
             }
         });
     }
@@ -228,10 +329,10 @@ public class newStudent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -241,8 +342,10 @@ public class newStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }

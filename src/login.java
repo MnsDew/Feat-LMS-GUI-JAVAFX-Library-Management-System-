@@ -128,7 +128,7 @@ public class login extends javax.swing.JFrame {
        
          String password = new String(jPasswordField1.getPassword()); // Convert char[] to String
     String username = jTextField1.getText();
-        
+
     if (password.equals("admin") && username.equals("admin")) {
         setVisible(false);
         new home().setVisible(true);
@@ -136,8 +136,6 @@ public class login extends javax.swing.JFrame {
     } else {
         JOptionPane.showMessageDialog(null, "INVALID USERNAME OR PASSWORD!");
     }
-
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -170,11 +168,10 @@ public class login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new login().setVisible(true);
+                new login().setVisible(true); 
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -187,4 +184,5 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
 }

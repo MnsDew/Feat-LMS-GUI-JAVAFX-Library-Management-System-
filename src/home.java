@@ -59,9 +59,9 @@ public class home extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(102, 102, 255));
 
         jButton1.setBackground(new java.awt.Color(102, 0, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add-userr.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/add-userr.png"))); // NOI18N
         jButton1.setText("Add Student");
         jButton1.setPreferredSize(new java.awt.Dimension(153, 43));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +76,11 @@ public class home extends javax.swing.JFrame {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/addBookk.png"))); // NOI18N
         jButton2.setText("Add Book");
         jButton2.setPreferredSize(new java.awt.Dimension(153, 43));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(102, 50, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
@@ -304,6 +309,10 @@ public class home extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new newStudent().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new newBook().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

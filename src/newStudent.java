@@ -1,12 +1,21 @@
-/*
+
+import java.sql.*;
+import java.sql.SQLException;/*
+
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import javax.swing.JOptionPane;
+import BackEnd.DatabaseConnectionFactory;
+import BackEnd.IDatabaseConnection;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 /**
  *
  * @author mnsso
  */
+
 public class newStudent extends javax.swing.JFrame {
 
     /**
@@ -16,10 +25,20 @@ public class newStudent extends javax.swing.JFrame {
         initComponents();
            this.setLocationRelativeTo(null);
         setExtendedState(ABORT);
-        
-      
+ 
+     
     }
 
+    public void emptier () {
+        // Clear all input fields
+    jTextField2.setText("");  // Clear studentID field
+    jTextField3.setText("");  // Clear name field
+    jTextField4.setText("");  // Clear surname field
+    jComboBox1.setSelectedIndex(0);  // Reset department dropdown
+    jComboBox2.setSelectedIndex(0);  // Reset courseCODE dropdown
+    
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,10 +71,10 @@ public class newStudent extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusTraversalPolicyProvider(true);
-        setLocation(new java.awt.Point(525, 200));
+        setLocation(new java.awt.Point(700, 550));
         setMaximumSize(null);
         setUndecorated(true);
-        setSize(new java.awt.Dimension(750, 400));
+        setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
@@ -65,6 +84,11 @@ public class newStudent extends javax.swing.JFrame {
 
         jTextField2.setBackground(new java.awt.Color(51, 51, 51));
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 180, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -119,23 +143,31 @@ public class newStudent extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/add-userr.png"))); // NOI18N
         jButton1.setText("Save");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, 100, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, 100, 40));
 
         jButton2.setBackground(new java.awt.Color(102, 0, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/close .png"))); // NOI18N
         jButton2.setText("Cancel");
+        jButton2.setMaximumSize(new java.awt.Dimension(96, 43));
+        jButton2.setMinimumSize(new java.awt.Dimension(96, 43));
+        jButton2.setPreferredSize(new java.awt.Dimension(96, 43));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 110, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 480, 100, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/add-friend.png"))); // NOI18N
         jLabel7.setText("l");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 150, 140));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 150, 140));
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 153));
         jPanel1.setAlignmentY(8.0F);
@@ -149,28 +181,28 @@ public class newStudent extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGap(0, 780, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, -120, 10, 680));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, -120, 10, 780));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("ADD NEW STUDENT");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 13)); // NOI18N
         jLabel9.setText("Please Fill All The Fields, To Save The Student Inofrmation Correctly ! ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 430, 20));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 430, 20));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/try.png"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 360, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 360, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -160, 1190, 720));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 680));
 
         pack();
         setLocationRelativeTo(null);
@@ -186,8 +218,100 @@ public class newStudent extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         setVisible(false);
-        new home().setVisible(true);
+//        new home().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+        String studentID=jTextField2.getText();
+        String name=jTextField3.getText();
+        String surename=jTextField4.getText();
+        String department=(String)jComboBox1.getSelectedItem();
+        String courseCODE=(String)jComboBox2.getSelectedItem();
+        
+        
+        // Here the function Mansoor used to validate that required fields are not empty
+     if (studentID.isEmpty() || name.isEmpty() || surename.isEmpty()) {
+    JOptionPane.showMessageDialog(null, "Please fill in all required fields!", "Input Error", JOptionPane.ERROR_MESSAGE);
+    return;  // Stop execution if fields are empty , so nNO!! EMPTY FIELDS WILL BE ADD TO THE DATABASE!
+     }
+
+            
+                  try {
+
+                         IDatabaseConnection connection1 = DatabaseConnectionFactory.getConnection("MYSQL");
+                     connection1.connect();
+                      
+      // I Used here PreparedStatement to prevent SQL injection from attakers and Hackers!
+        String sql = "INSERT INTO student (studentID, name, surename, department, courseCODE) VALUES (?, ?, ?, ?, ?)";
+        
+        PreparedStatement stmt = connection1.getConnection().prepareStatement(sql);
+        stmt.setString(1, studentID);
+        stmt.setString(2, name);
+        stmt.setString(3, surename);
+        stmt.setString(4, department);
+        stmt.setString(5, courseCODE);
+
+        // Execute the insert query
+        int rowsInserted = stmt.executeUpdate();
+        
+        if (rowsInserted > 0) {
+            JOptionPane.showMessageDialog(null, "Student added successfully!");
+            // Clear all input fields
+            emptier(); // to empty all fields
+             
+        } else {
+            JOptionPane.showMessageDialog(null, "Error adding student.");
+            // Clear all input fields
+              
+        }
+
+        // Close resources
+        stmt.close();
+        connection1.disconnect();
+        
+    } catch (SQLException e) {
+         JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage());
+    
+
+    }
+                  
+                  
+                     //second connection for second database 
+                         IDatabaseConnection connection2 = DatabaseConnectionFactory.getConnection("POSTGRESSQL");
+                     connection2.connect();
+           try{ 
+String sql = "INSERT INTO student (studentID, name, surename, department, courseCODE) VALUES (?, ?, ?, ?, ?)";
+PreparedStatement stmt = connection2.getConnection().prepareStatement(sql);
+stmt.setString(1, studentID);
+stmt.setString(2, name);
+stmt.setString(3, surename);
+stmt.setString(4, department);
+stmt.setString(5, courseCODE);
+
+int rowsInserted = stmt.executeUpdate();
+if (rowsInserted > 0) {
+ JOptionPane.showMessageDialog(null, "Student added successfully to PostgreSQL!");
+ 
+
+ }  else {
+    JOptionPane.showMessageDialog(null, "Error adding student to PostgreSQL.");
+} 
+
+stmt.close();
+connection2.disconnect();
+
+          
+    } catch (SQLException e) {
+         JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage());
+    
+
+                  
+    }//GEN-LAST:event_jButton1ActionPerformed
+    }
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +345,8 @@ public class newStudent extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new newStudent().setVisible(true);
+                 //Get the database connection based on your requrements!!
+               
             }
         });
     }
