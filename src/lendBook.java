@@ -1,13 +1,18 @@
 
 import java.sql.*;
 import java.sql.SQLException;/*
+
 import javax.swing.JFrame;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 import javax.swing.JOptionPane;
+import java.util.Date;
 import BackEnd.DatabaseConnectionFactory;
 import BackEnd.IDatabaseConnection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import javafx.scene.input.DataFormat;
  
 
 /**
@@ -15,31 +20,43 @@ import BackEnd.IDatabaseConnection;
  * @author mnsso
  */
 
-public class newBook extends javax.swing.JFrame {
+public class lendBook extends javax.swing.JFrame {
 
     /**
      * Creates new form AddNewBook
      */
-    public newBook() {
+    public lendBook() {
         initComponents();
            this.setLocationRelativeTo(null);
         setExtendedState(ABORT);
-       
- 
         
-      
+        
     }
      public void emptier () {
         // Clear all input fields
-    jTextField2.setText("");  
-    jTextField3.setText("");   
-    jTextField4.setText("");   
+    jTextField2.setText("");    
+     
     jTextField1.setText("");   
-     jTextField5.setText(""); 
-    
+ }
 
-    }
-
+      public boolean doesBookExist(String bookID , Connection conn) throws SQLException{
+String query = "SELECT COUNT(*) FROM book WHERE bookID = ?";
+try(PreparedStatement stmt = conn.prepareStatement(query)){
+    stmt.setString(1, bookID);
+    ResultSet rs = stmt.executeQuery();
+    return rs.next()&& rs.getInt(1) > 0;
+}
+}
+      
+        public boolean doesStudentExist(String studentID , Connection conn) throws SQLException{
+String query = "SELECT COUNT(*) FROM student WHERE studentID = ?";
+try(PreparedStatement stmt = conn.prepareStatement(query)){
+    stmt.setString(1, studentID);
+    ResultSet rs = stmt.executeQuery();
+    return rs.next()&& rs.getInt(1) > 0;
+}
+}
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,10 +70,7 @@ public class newBook extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -66,8 +80,10 @@ public class newBook extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jLabel13 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,8 +97,8 @@ public class newBook extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Book ID ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 168, -1));
+        jLabel6.setText("Student ID ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 168, -1));
 
         jTextField2.setBackground(new java.awt.Color(51, 51, 51));
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,47 +107,29 @@ public class newBook extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 180, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 270, 180, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Book Name");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, -1));
+        jLabel1.setText("Lend Date");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Publisher");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 190, -1));
-
-        jTextField3.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, 180, -1));
+        jLabel2.setText("Due To Date");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Price");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 150, -1));
-
-        jLabel4.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Publishment Year");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 150, -1));
-
-        jTextField4.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 180, -1));
+        jLabel3.setText("Book ID");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 150, -1));
 
         jButton1.setBackground(new java.awt.Color(102, 0, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/save.png"))); // NOI18N
-        jButton1.setText("Save");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/lendy.png"))); // NOI18N
+        jButton1.setText("Lend");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -152,9 +150,9 @@ public class newBook extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 100, 40));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/BBOKYBOOK.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/aabooklend.png"))); // NOI18N
         jLabel7.setText("l");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 150, 140));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 150, 140));
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 153));
         jPanel1.setAlignmentY(8.0F);
@@ -171,18 +169,18 @@ public class newBook extends javax.swing.JFrame {
             .addGap(0, 620, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, -1, 620));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, 620));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("ADD NEW BOOK");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
+        jLabel8.setText("ISSUE OR LEND BOOK");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 13)); // NOI18N
-        jLabel9.setText("Please Fill All The Fields, To Save The Book Inofrmation Correctly ! ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 440, 20));
+        jLabel9.setText("Please Fill All The Fields, To Lend The Book  Correctly ! ");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 440, 20));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/try.png"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 360, -1));
@@ -190,25 +188,27 @@ public class newBook extends javax.swing.JFrame {
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
         jLabel11.setText("All information will be saved...");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jTextField1.setBackground(new java.awt.Color(51, 51, 51));
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 180, -1));
-
-        jTextField5.setBackground(new java.awt.Color(51, 51, 51));
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, 180, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 180, -1));
 
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/bookwhiter.png"))); // NOI18N
         jLabel12.setText("-");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 80, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, -1, -1));
+
+        jDateChooser1.setBackground(new java.awt.Color(51, 51, 51));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, 180, -1));
+
+        jDateChooser2.setBackground(new java.awt.Color(51, 51, 51));
+        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 180, -1));
+
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/study.png"))); // NOI18N
+        jLabel13.setText("l");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 70, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
@@ -218,50 +218,59 @@ public class newBook extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         setVisible(false);
 //        new home().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
-        String bookID=jTextField2.getText();
-        String BookName=jTextField3.getText();
-        String Publisher=jTextField4.getText();
-        double Price = 0.0;
-try {
-    Price = Double.parseDouble(jTextField1.getText());
-} catch (NumberFormatException e) {
-    JOptionPane.showMessageDialog(null, "Invalid price. Please enter a valid number.");
-}
-       String publishmentYear = jTextField5.getText();
+       
+           
+        
+        java.util.Date lendUtilDate = jDateChooser1.getDate();
+        java.util.Date dueUtilDate = jDateChooser2.getDate();
+        
+        String bookID=jTextField1.getText();
+        String studentID=jTextField2.getText();
+        // CONVERT DATES 
+        java.sql.Date lendDate = new java.sql.Date(lendUtilDate.getTime());
+        java.sql.Date dueDate = new java.sql.Date(dueUtilDate.getTime());
+        
+        
                   try {
 
-                         IDatabaseConnection connectionBook = DatabaseConnectionFactory.getConnection("MYSQL");
-                     connectionBook.connect();
-                      
-      // I used this method to be strong connection without any hacking or attaking 
-      
+                         IDatabaseConnection connectionLEND = DatabaseConnectionFactory.getConnection("MYSQL");
+                     connectionLEND.connect();
+                     
+                Connection conn = connectionLEND.getConnection();
+                
+                
+                if(!doesBookExist(bookID, conn)){
+                    JOptionPane.showMessageDialog(null, "Error : Book ID does not exist! ");
+                    return;
+                }
+                
+                  if(!doesStudentExist(studentID, conn)){
+                    JOptionPane.showMessageDialog(null, "Error : Student ID does not exist! ");
+                    return;
+                }
+      // I used this method to be strong connection without any hacking or attaking
       // Use PreparedStatement to prevent SQL injection!!!
-      //insert into book not student or other table!!
+     
       
-        String sql = "INSERT INTO book (bookID, BookName, Publisher, Price, publishmentYear) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO lend (bookID, studentID, lend_date, due_date , return_status) VALUES (?, ?, ?, ?, 'No')";
         
-        PreparedStatement stmt = connectionBook.getConnection().prepareStatement(sql);
+        PreparedStatement stmt =  conn.prepareStatement(sql);
         stmt.setString(1, bookID);
-        stmt.setString(2, BookName);
-        stmt.setString(3, Publisher);
-        stmt.setDouble(4, Price);
-        stmt.setString(5, publishmentYear);
-
+        stmt.setString(2, studentID);
+        stmt.setDate(3,  lendDate);
+        stmt.setDate(4,  dueDate);
+        
         // Execute the insert query
+       
         int rowsInserted = stmt.executeUpdate();
         if (rowsInserted > 0) {
-            JOptionPane.showMessageDialog(null, "Book added successfully!");
+            JOptionPane.showMessageDialog(null, "Book Lended successfully!");
              emptier(); // to empty all fields
         } else {
             JOptionPane.showMessageDialog(null, "Error adding Book.");
@@ -269,12 +278,13 @@ try {
 
         // Close resources
         stmt.close();
-        connectionBook.disconnect();
+        conn.close();
+        connectionLEND.disconnect();
         
     } catch (SQLException e) {
         e.printStackTrace();
         JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage());
-       
+    
   
 
     }
@@ -283,10 +293,6 @@ try {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,7 +325,7 @@ try {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new newBook().setVisible(true);
+                new lendBook().setVisible(true);
                  //Get the database connection based on your requrements!!
                
             }
@@ -329,13 +335,15 @@ try {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -344,8 +352,5 @@ try {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
