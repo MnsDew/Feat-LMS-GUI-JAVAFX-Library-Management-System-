@@ -22,12 +22,12 @@ import javafx.scene.input.DataFormat;
  
  
 
-public class lendBook extends javax.swing.JFrame {
+public class returnBook extends javax.swing.JFrame {
 
     /**
      * Creates new form AddNewBook
      */
-    public lendBook() {
+    public returnBook() {
         initComponents();
            this.setLocationRelativeTo(null);
         setExtendedState(ABORT);
@@ -85,9 +85,13 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jLabel11 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel13 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,7 +106,7 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jLabel6.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Student ID ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 168, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 168, -1));
 
         jTextField2.setBackground(new java.awt.Color(51, 51, 51));
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,35 +115,35 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 270, 180, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 180, 30));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Lend Date");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, 170, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Due To Date");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 160, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 450, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Book ID");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 150, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 150, -1));
 
         jButton1.setBackground(new java.awt.Color(102, 0, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/lendy.png"))); // NOI18N
-        jButton1.setText("Lend");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/areturn.png"))); // NOI18N
+        jButton1.setText("Return");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 100, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 100, 40));
 
         jButton2.setBackground(new java.awt.Color(102, 0, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -152,9 +156,9 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 100, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 520, 100, 40));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/aabooklend.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/abigreturn.png"))); // NOI18N
         jLabel7.setText("l");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 150, 140));
 
@@ -178,13 +182,13 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("ISSUE OR LEND BOOK");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
+        jLabel8.setText("RETURN BOOK");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 13)); // NOI18N
-        jLabel9.setText("Please Fill All The Fields, To Lend The Book  Correctly ! ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 440, 20));
+        jLabel9.setText("Please Fill All The Fields, To  Return The Book Correctly ! ");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 440, 20));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/try.png"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 360, -1));
@@ -196,27 +200,59 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
 
         jTextField1.setBackground(new java.awt.Color(51, 51, 51));
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 180, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, 180, 30));
 
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/bookwhiter.png"))); // NOI18N
         jLabel12.setText("-");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, -1, -1));
-
-        jDateChooser1.setBackground(new java.awt.Color(51, 51, 51));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, 180, -1));
-
-        jDateChooser2.setBackground(new java.awt.Color(51, 51, 51));
-        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 180, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 60, -1, -1));
 
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/study.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/book-return (1).png"))); // NOI18N
         jLabel13.setText("l");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 70, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, -1, -1));
+
+        jTextField3.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField3.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 180, 30));
+
+        jTextField4.setBackground(new java.awt.Color(51, 51, 51));
+        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField4.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, 180, 30));
+
+        jButton3.setBackground(new java.awt.Color(102, 51, 255));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/search.png"))); // NOI18N
+        jButton3.setText("Search");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 110, 40));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 390, 10));
+
+        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 320, 10));
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/aaa.png"))); // NOI18N
+        jLabel4.setText("l");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, -240, 1210, 900));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -210, 1210, 900));
 
         pack();
         setLocationRelativeTo(null);
@@ -229,75 +265,126 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-           
-        
-        java.util.Date lendUtilDate = jDateChooser1.getDate();
-        java.util.Date dueUtilDate = jDateChooser2.getDate();
-        
-        
-        String bookID=jTextField1.getText();
-        String studentID=jTextField2.getText();
-        // CONVERT DATES 
-        java.sql.Date lendDate = new java.sql.Date(lendUtilDate.getTime());
-        java.sql.Date dueDate = new java.sql.Date(dueUtilDate.getTime());
-        
-        
-                  try {
+ String bookID = jTextField1.getText();
+String studentID = jTextField2.getText();
 
-                         IDatabaseConnection connectionLEND = DatabaseConnectionFactory.getConnection("MYSQL");
-                     connectionLEND.connect();
-                     
-                Connection conn = connectionLEND.getConnection();
-                
-                
-                if(!doesBookExist(bookID, conn)){
-                    JOptionPane.showMessageDialog(null, "Error : Book ID does not exist! ");
-                    return;
-                }
-                
-                  if(!doesStudentExist(studentID, conn)){
-                    JOptionPane.showMessageDialog(null, "Error : Student ID does not exist! ");
-                    return;
-                }
-      // I used this method to be strong connection without any hacking or attaking
-      // Use PreparedStatement to prevent SQL injection!!!
-     
-      
-        String sql = "INSERT INTO lend (bookID, studentID, lend_date, due_date , return_status) VALUES (?, ?, ?, ?, 'No')";
-        
-        PreparedStatement stmt =  conn.prepareStatement(sql);
+// SQL query to update the return status
+String query = "UPDATE lend SET return_status = 'Yes' , return_date = NOW() WHERE bookID = ? AND studentID = ? AND return_status = 'No'";
+
+try {
+    // Establish database connection
+    IDatabaseConnection connectionReturn = DatabaseConnectionFactory.getConnection("MYSQL");
+    connectionReturn.connect();
+    Connection conn = connectionReturn.getConnection();  // FIXED: Properly retrieving connection
+
+    // Check if book and student exist before proceeding
+    if (!doesBookExist(bookID, conn)) {
+        JOptionPane.showMessageDialog(null, "Error: Book ID does not exist!");
+        return;
+    }
+
+    if (!doesStudentExist(studentID, conn)) {
+        JOptionPane.showMessageDialog(null, "Error: Student ID does not exist!");
+        return;
+    }
+
+    // Prepare SQL statement
+    try (PreparedStatement stmt = conn.prepareStatement(query)) {
         stmt.setString(1, bookID);
         stmt.setString(2, studentID);
-        stmt.setDate(3,  lendDate);
-        stmt.setDate(4,  dueDate);
+
+        // Execute update query
+        int rowsUpdated = stmt.executeUpdate();  // FIXED: Removed executeQuery()
         
-        // Execute the insert query
-       
-        int rowsInserted = stmt.executeUpdate();
-        if (rowsInserted > 0) {
-            JOptionPane.showMessageDialog(null, "Book Lended successfully!");
-             emptier(); // to empty all fields
+        if (rowsUpdated > 0) {
+            JOptionPane.showMessageDialog(null, "Book Returned successfully!");
+            emptier(); // To clear fields
+             jTextField3.setText("");    
+             jTextField4.setText("");  
         } else {
-            JOptionPane.showMessageDialog(null, "Error adding Book.");
+            JOptionPane.showMessageDialog(null, "Error: Book return failed.");
         }
-
-        // Close resources
-        stmt.close();
-        conn.close();
-        connectionLEND.disconnect();
-        
-    } catch (SQLException e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage());
-    
-  
-
     }
+
+    // Close resources
+    conn.close();
+    connectionReturn.disconnect();
+
+} catch (SQLException e) {
+    e.printStackTrace();
+    JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage());
+}
+
+
+  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+                
+        String bookID = jTextField1.getText();
+String studentID = jTextField2.getText();
+
+try {
+    // Establish connection to the database
+    IDatabaseConnection connSearch = DatabaseConnectionFactory.getConnection("MYSQL");
+    connSearch.connect();
+    Connection conn = connSearch.getConnection();
+    
+    // Check if the book exists
+    if (!doesBookExist(bookID, conn)) {
+        JOptionPane.showMessageDialog(null, "Error: Book ID does not exist!");
+        return; // Exit if the book doesn't exist
+    }
+    
+    // Check if the student exists
+    if (!doesStudentExist(studentID, conn)) {
+        JOptionPane.showMessageDialog(null, "Error: Student ID does not exist!");
+        return; // Exit if the student doesn't exist
+    }
+    
+    // SQL query to retrieve the lend date and due date for the book and student
+    String query = "SELECT lend_date, due_date FROM lend WHERE bookID = ? AND studentID = ? AND return_status = 'No'";
+    try (PreparedStatement stmt = conn.prepareStatement(query)) {
+        stmt.setString(1, bookID);
+        stmt.setString(2, studentID);
+        
+        ResultSet rs = stmt.executeQuery();
+        
+        // Check if there's a result (the book has been lent to the student)
+        if (rs.next()) {
+            // Display the lend date and due date in the respective fields
+            jTextField3.setText(rs.getString("lend_date"));
+            jTextField4.setText(rs.getString("due_date"));
+            JOptionPane.showMessageDialog(null, "CHECK THE DATE DOWN");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error: No active lending record found for this book and student.");
+        }
+        
+        // Close resources
+        stmt.close();
+        conn.close();
+        connSearch.disconnect();
+        
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage());
+    }
+    
+} catch (Exception e) {
+    e.printStackTrace();
+    JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+}
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,7 +417,7 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new lendBook().setVisible(true);
+                new returnBook().setVisible(true);
                  //Get the database connection based on your requrements!!
                
             }
@@ -340,8 +427,7 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -349,13 +435,18 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
