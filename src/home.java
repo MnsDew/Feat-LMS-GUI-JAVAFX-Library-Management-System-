@@ -1,3 +1,5 @@
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -50,6 +52,8 @@ public class home extends javax.swing.JFrame {
         jSeparator10 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,6 +92,11 @@ public class home extends javax.swing.JFrame {
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/chart.png"))); // NOI18N
         jButton3.setText("Statastics");
         jButton3.setPreferredSize(new java.awt.Dimension(153, 43));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
@@ -229,6 +238,7 @@ public class home extends javax.swing.JFrame {
         jSeparator12.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator12.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel4.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/librotrack-high-resolution-logo.png"))); // NOI18N
         jLabel4.setLabelFor(jLabel4);
 
@@ -305,7 +315,17 @@ public class home extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/digital-book (1).png"))); // NOI18N
         jLabel5.setText("-");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 600, 460));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 600, 460));
+
+        jLabel6.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel6.setText("CREATED BY MANSOOR or MNS GitHub: MnsDew");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 720, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("All copy rights for MNS or Mansoor, GitHub: MnsDew");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 200, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/aNewPic.jpg"))); // NOI18N
         jLabel2.setText("-");
@@ -335,6 +355,10 @@ public class home extends javax.swing.JFrame {
        new lendBook().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new Statistics().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+//CREATED BY MANSOOR or MNS GitHub: MnsDew
     /**
      * @param args the command line arguments
      */
@@ -386,6 +410,8 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

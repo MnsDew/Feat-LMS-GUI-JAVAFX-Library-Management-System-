@@ -21,7 +21,7 @@ public class MySQLConnection implements IDatabaseConnection {
                
           Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Replace with your PostgreSQL credentials
+            // Replace with your MYSQL credentials
              String url = "jdbc:mysql://localhost:3306/lms";
             String user = "root";
             String password = "NoWay13579-@";

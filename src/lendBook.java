@@ -14,7 +14,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javafx.scene.input.DataFormat;
  
-
+//CREATED BY MANSOOR or MNS GitHub: MnsDew
 /**
  *
  * @author mnsso
@@ -77,17 +77,18 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel13 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -154,6 +155,11 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 100, 40));
 
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
+        jLabel11.setText("All information will be saved...");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/aabooklend.png"))); // NOI18N
         jLabel7.setText("l");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 150, 140));
@@ -175,12 +181,6 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, 620));
 
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("ISSUE OR LEND BOOK");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
-
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 13)); // NOI18N
         jLabel9.setText("Please Fill All The Fields, To Lend The Book  Correctly ! ");
@@ -188,11 +188,6 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/try.png"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 360, -1));
-
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
-        jLabel11.setText("All information will be saved...");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jTextField1.setBackground(new java.awt.Color(51, 51, 51));
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
@@ -213,6 +208,17 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/study.png"))); // NOI18N
         jLabel13.setText("l");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 70, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("OCR A Extended", 2, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setText("All copy rights for MNS , GitHub: MnsDew");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setFont(new java.awt.Font("Lucida Bright", 1, 22)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(102, 0, 204));
+        jButton3.setText("ISSUE OR LEND BOOK");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
@@ -340,6 +346,7 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -349,10 +356,10 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;

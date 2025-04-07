@@ -79,7 +79,6 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -92,6 +91,8 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,14 +180,9 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, 620));
 
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("RETURN BOOK");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
-
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 13)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Please Fill All The Fields, To  Return The Book Correctly ! ");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 440, 20));
 
@@ -249,6 +245,17 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/aaa.png"))); // NOI18N
         jLabel4.setText("l");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel14.setText("All copy rights for MNS , GitHub: MnsDew");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, -1, -1));
+
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setFont(new java.awt.Font("Lucida Bright", 1, 22)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(102, 0, 204));
+        jButton4.setText("RETURN BOOK");
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
@@ -383,7 +390,7 @@ try {
     e.printStackTrace();
     JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
 }
-
+//CREATED BY MANSOOR or MNS GitHub: MnsDew
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -428,18 +435,19 @@ try {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;

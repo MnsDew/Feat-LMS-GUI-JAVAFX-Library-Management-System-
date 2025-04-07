@@ -39,7 +39,11 @@ public class login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,11 +105,30 @@ public class login extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/logo-grayscale.png"))); // NOI18N
         jLabel6.setText("-");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 300, 110));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 300, 110));
+
+        jLabel3.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("CREATED BY MANSOOR or MNS GitHub: MnsDew ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 760, 300, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel8.setText("CREATEAD BY MNS GitHub: MnsDew ");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/loginCard.png"))); // NOI18N
         jLabel7.setText("l");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, -1, -1));
+
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("CREATED BY MANSOOR or MNS GitHub: MnsDew ");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("All copy rights for MNS , GitHub: MnsDew");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 740, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/libraryy.jpg"))); // NOI18N
         jLabel4.setText("k");
@@ -137,6 +160,8 @@ public class login extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "INVALID USERNAME OR PASSWORD!");
     }
     }//GEN-LAST:event_jButton2ActionPerformed
+//CREATED BY MANSOOR or MNS GitHub: MnsDew
+ 
 
     /**
      * @param args the command line arguments
@@ -176,11 +201,15 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
