@@ -1,7 +1,10 @@
 //Feat: " CREATING NEW GUI LMS APPLICATION"
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+import BackEnd.IDatabaseConnection;
+import BackEnd.DatabaseConnectionFactory;
+import java.sql.*;
+import java.sql.SQLException;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -159,9 +162,64 @@ public class login extends javax.swing.JFrame {
     } else {
         JOptionPane.showMessageDialog(null, "INVALID USERNAME OR PASSWORD!");
     }
+     //if you want it from the Database 
+    // create table in database : users and user name and password 
+    //then, 
+    //UNCOMMENT THIS 
+//       String username = jTextField1.getText();
+//        String password = new String(jPasswordField1.getPassword());
+//
+//        if (isValidUser(username, password)) {
+//            setVisible(false);
+//            new home().setVisible(true);
+//            JOptionPane.showMessageDialog(null, "Thanks for Login");
+//        } else {
+//            JOptionPane.showMessageDialog(null, "INVALID USERNAME OR PASSWORD!");
+//        }
+//}
+//    private boolean isValidUser(String username, String password) {
+//        boolean isValid = false;
+//
+//        // Use the DatabaseConnectionFactory to get the connection
+//         IDatabaseConnection conn = DatabaseConnectionFactory.getConnection("MYSQL");
+//                     conn.connect();
+//
+//        if (conn != null) {
+//            try {
+//                 
+//                      
+//                // Prepare SQL query to check username and password
+//                String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+//                PreparedStatement stmt = conn.getConnection().prepareStatement(sql);
+//                stmt.setString(1, username);
+//                stmt.setString(2, password);
+//
+//                // Execute the query
+//                ResultSet rs = stmt.executeQuery();
+//
+//                // Check if the result set contains a valid user
+//                if (rs.next()) {
+//                    isValid = true; // User found in the database
+//                }
+//
+//                // Close resources
+//                rs.close();
+//                stmt.close();
+//                conn.disconnect();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//                JOptionPane.showMessageDialog(null, "Database error: " + e.getMessage());
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Database connection failed.");
+//        }
+//
+//        return isValid;
+//    
+
     }//GEN-LAST:event_jButton2ActionPerformed
 //CREATED BY MANSOOR or MNS GitHub: MnsDew
- 
+
 
     /**
      * @param args the command line arguments
