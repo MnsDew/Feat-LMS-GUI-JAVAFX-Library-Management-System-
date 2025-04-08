@@ -31,6 +31,7 @@ Follow the steps below to set up the project locally:
 git clone https://github.com/MnsDew/Feat-LMS-GUI-JAVAFX-Library-Management-System-.git
 
 ```
+Username: admin , Password: admin
 
 ### 2. Open the project in NetBeans:
 1. Open **NetBeans IDE**.
@@ -48,6 +49,7 @@ git clone https://github.com/MnsDew/Feat-LMS-GUI-JAVAFX-Library-Management-Syste
 ### 5. Run the application:
 1. In NetBeans, right-click the project and select **Run**.
 2. The application should start, and you can access the GUI for managing the library.
+3. Username: admin , Password: admin
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
