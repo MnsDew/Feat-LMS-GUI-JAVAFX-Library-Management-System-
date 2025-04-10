@@ -371,7 +371,13 @@ try {
             // Display the lend date and due date in the respective fields
             jTextField3.setText(rs.getString("lend_date"));
             jTextField4.setText(rs.getString("due_date"));
+            
+           //HERE THE CHECKS TO NOT EDIT THE DATE WHICH COMES FORM DATABASE 
+           jTextField3.setEditable(false);
+            jTextField4.setEditable(false);
+            
             JOptionPane.showMessageDialog(null, "CHECK THE DATE DOWN");
+           
         } else {
             JOptionPane.showMessageDialog(null, "Error: No active lending record found for this book and student.");
         }

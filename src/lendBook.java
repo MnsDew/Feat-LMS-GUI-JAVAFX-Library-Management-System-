@@ -90,6 +90,7 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -224,6 +225,9 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jLabel5.setText("0");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, -240, 1210, 900));
 
+        jButton4.setText("jButton4");
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -236,17 +240,30 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
            
-        
-        java.util.Date lendUtilDate = jDateChooser1.getDate();
-        java.util.Date dueUtilDate = jDateChooser2.getDate();
-        
-        
-        String bookID=jTextField1.getText();
-        String studentID=jTextField2.getText();
-        // CONVERT DATES 
-        java.sql.Date lendDate = new java.sql.Date(lendUtilDate.getTime());
-        java.sql.Date dueDate = new java.sql.Date(dueUtilDate.getTime());
-        
+ java.util.Date lendUtilDate = jDateChooser1.getDate();
+java.util.Date dueUtilDate = jDateChooser2.getDate();
+
+String bookID = jTextField1.getText();
+String studentID = jTextField2.getText();
+
+// Validate null dates
+if (lendUtilDate == null || dueUtilDate == null) {
+    JOptionPane.showMessageDialog(null, "Please select both lend and due dates.");
+    return;
+}
+
+// Convert to SQL date
+java.sql.Date lendDate = new java.sql.Date(lendUtilDate.getTime());
+java.sql.Date dueDate = new java.sql.Date(dueUtilDate.getTime());
+
+// Compare whole date objects
+if (dueDate.before(lendDate)) {
+    JOptionPane.showMessageDialog(null, "Due date must be after lend date.");
+    return;
+}
+
+// Continue saving to DB
+
         
                   try {
 
@@ -347,6 +364,7 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
