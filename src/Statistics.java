@@ -117,7 +117,7 @@ public static Connection CreateConnection() {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/bookwhiter.png"))); // NOI18N
         jLabel12.setText("-");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
 
         jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 320, 10));
@@ -192,7 +192,7 @@ public static Connection CreateConnection() {
         jButton2.setBackground(new java.awt.Color(153, 0, 255));
         jButton2.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Lended Books Details");
+        jButton2.setText("Lent Books Details");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
