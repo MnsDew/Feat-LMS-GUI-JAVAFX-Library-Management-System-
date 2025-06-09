@@ -39,7 +39,17 @@ public class newBook extends javax.swing.JFrame {
     
 
     }
-
+public static Connection CreateConnection() {
+    try {
+        IDatabaseConnection connectionStatistics = DatabaseConnectionFactory.getConnection("MYSQL");
+        connectionStatistics.connect();
+        return connectionStatistics.getConnection();
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
+        return null;
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,6 +81,8 @@ public class newBook extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -153,7 +165,7 @@ public class newBook extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 530, 100, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 580, 100, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/BBOKYBOOK.png"))); // NOI18N
         jLabel7.setText("l");
@@ -229,7 +241,7 @@ public class newBook extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 530, 100, 40));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 100, 40));
 
         jButton5.setBackground(new java.awt.Color(102, 0, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -242,6 +254,29 @@ public class newBook extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 470, 100, 40));
+
+        jButton6.setBackground(new java.awt.Color(102, 0, 255));
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\mnsso\\Documents\\NetBeansProjectsNew\\LibraryManagmentSystem1\\src\\assests\\search.png")); // NOI18N
+        jButton6.setText("Search");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 520, 100, 40));
+
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(102, 0, 255));
+        jButton7.setText("Clear ");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 500, 70, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
@@ -455,6 +490,65 @@ if (rowsAffected > 0) {
 }
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+          
+ String bookID = jTextField2.getText().trim();
+String BookName = jTextField3.getText().trim();
+
+if (bookID.isEmpty() && BookName.isEmpty()) {
+    JOptionPane.showMessageDialog(null, "Please enter Book ID or Book Name to search.", "Input Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+try {
+    IDatabaseConnection connection1 = DatabaseConnectionFactory.getConnection("MYSQL");
+    connection1.connect();
+
+    String sql;
+    PreparedStatement stmt;
+
+    if (!bookID.isEmpty() && BookName.isEmpty()) {
+        sql = "SELECT * FROM book WHERE bookID = ?";
+        stmt = connection1.getConnection().prepareStatement(sql);
+        stmt.setString(1, bookID);
+    } else if (bookID.isEmpty() && !BookName.isEmpty()) {
+        sql = "SELECT * FROM book WHERE BookName = ?";
+        stmt = connection1.getConnection().prepareStatement(sql);
+        stmt.setString(1, BookName);
+    } else {
+        sql = "SELECT * FROM student WHERE studentID = ? AND name = ?";
+        stmt = connection1.getConnection().prepareStatement(sql);
+        stmt.setString(1, bookID);
+        stmt.setString(2, BookName);
+    }
+
+    ResultSet rs = stmt.executeQuery();
+
+    if (rs.next()) {
+        jTextField2.setText(rs.getString("bookID"));     // Optional: update ID too
+        jTextField3.setText(rs.getString("BookName"));
+        jTextField4.setText(rs.getString("Publisher"));
+        jTextField1.setText(rs.getString("Price"));
+        jTextField5.setText(rs.getString("publishmentYear"));
+    } else {
+        JOptionPane.showMessageDialog(null, "No book found.");
+    }
+
+    rs.close();
+    stmt.close();
+    connection1.disconnect();
+
+} catch (Exception e) {
+    e.printStackTrace();
+    JOptionPane.showMessageDialog(null, "Error fetching book data.");
+}
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        emptier();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 //CREATED BY MANSOOR or MNS GitHub: MnsDew
     /**
      * @param args the command line arguments
@@ -500,6 +594,8 @@ if (rowsAffected > 0) {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

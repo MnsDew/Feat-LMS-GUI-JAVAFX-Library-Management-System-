@@ -69,6 +69,8 @@ public class newStudent extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -173,7 +175,7 @@ public class newStudent extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 520, 110, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 110, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/add-friend.png"))); // NOI18N
         jLabel7.setText("l");
@@ -238,6 +240,29 @@ public class newStudent extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 110, 40));
+
+        jButton6.setBackground(new java.awt.Color(102, 0, 255));
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\mnsso\\Documents\\NetBeansProjectsNew\\LibraryManagmentSystem1\\src\\assests\\search.png")); // NOI18N
+        jButton6.setText("Search");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 520, 110, 40));
+
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(102, 0, 255));
+        jButton7.setText("Clear ");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 490, 70, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
@@ -506,6 +531,65 @@ if (confirm == JOptionPane.YES_OPTION) {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       String studentID = jTextField2.getText().trim();
+String name = jTextField3.getText().trim();
+
+if (studentID.isEmpty() && name.isEmpty()) {
+    JOptionPane.showMessageDialog(null, "Please enter Student ID or Name to search.", "Input Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+try {
+    IDatabaseConnection connection1 = DatabaseConnectionFactory.getConnection("MYSQL");
+    connection1.connect();
+
+    String sql;
+    PreparedStatement stmt;
+
+    if (!studentID.isEmpty() && name.isEmpty()) {
+        sql = "SELECT * FROM student WHERE studentID = ?";
+        stmt = connection1.getConnection().prepareStatement(sql);
+        stmt.setString(1, studentID);
+    } else if (studentID.isEmpty() && !name.isEmpty()) {
+        sql = "SELECT * FROM student WHERE name = ?";
+        stmt = connection1.getConnection().prepareStatement(sql);
+        stmt.setString(1, name);
+    } else {
+        sql = "SELECT * FROM student WHERE studentID = ? AND name = ?";
+        stmt = connection1.getConnection().prepareStatement(sql);
+        stmt.setString(1, studentID);
+        stmt.setString(2, name);
+    }
+
+    ResultSet rs = stmt.executeQuery();
+
+    if (rs.next()) {
+        jTextField2.setText(rs.getString("studentID"));     // Optional: update ID too
+        jTextField3.setText(rs.getString("name"));
+        jTextField4.setText(rs.getString("surename"));
+        jComboBox1.setSelectedItem(rs.getString("department"));
+        jComboBox2.setSelectedItem(rs.getString("courseCODE"));
+    } else {
+        JOptionPane.showMessageDialog(null, "No student found.");
+    }
+
+    rs.close();
+    stmt.close();
+    connection1.disconnect();
+
+} catch (Exception e) {
+    e.printStackTrace();
+    JOptionPane.showMessageDialog(null, "Error fetching student data.");
+}
+
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+emptier();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 //CREATED BY MANSOOR or MNS GitHub: MnsDew
     /**
      * @param args the command line arguments
@@ -551,6 +635,8 @@ if (confirm == JOptionPane.YES_OPTION) {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
