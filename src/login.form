@@ -199,11 +199,11 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="0" red="33" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CREATEAD BY MNS GitHub: MnsDew "/>
+        <Property name="text" type="java.lang.String" value="&#xa9; 2025 Mansoor Gabali | MNS70 | Github:(MnsDew). All rights reserved. "/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="460" y="510" width="-1" height="-1"/>
+          <AbsoluteConstraints x="540" y="560" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

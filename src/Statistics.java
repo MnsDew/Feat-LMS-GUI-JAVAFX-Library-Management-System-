@@ -30,6 +30,7 @@ public class Statistics extends javax.swing.JFrame {
         lendedbook();
          returnedbook();
          totalbooks();
+         totalstudents();
            this.setLocationRelativeTo(null);
         setExtendedState(ABORT);
         }
@@ -77,6 +78,9 @@ public static Connection CreateConnection() {
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jButton6 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,7 +112,7 @@ public static Connection CreateConnection() {
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Lucida Bright", 1, 10)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("All copy rights for MNS , GITHUB: MnsDew");
+        jLabel8.setText("© 2025 MNS70 | Github:(MnsDew). All rights reserved. ");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/try.png"))); // NOI18N
@@ -117,7 +121,7 @@ public static Connection CreateConnection() {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/bookwhiter.png"))); // NOI18N
         jLabel12.setText("-");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
 
         jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 320, 10));
@@ -127,7 +131,7 @@ public static Connection CreateConnection() {
         jLabel4.setText("l");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 30, -1, -1));
 
-        jTable1.setBackground(new java.awt.Color(51, 0, 102));
+        jTable1.setBackground(new java.awt.Color(51, 51, 51));
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,9 +146,9 @@ public static Connection CreateConnection() {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 850, 120));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 500, 180));
 
-        jTable2.setBackground(new java.awt.Color(51, 0, 102));
+        jTable2.setBackground(new java.awt.Color(51, 51, 51));
         jTable2.setForeground(new java.awt.Color(255, 255, 255));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -159,9 +163,9 @@ public static Connection CreateConnection() {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 850, 120));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 450, 180));
 
-        jTable3.setBackground(new java.awt.Color(51, 0, 102));
+        jTable3.setBackground(new java.awt.Color(51, 51, 51));
         jTable3.setForeground(new java.awt.Color(255, 255, 255));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -174,9 +178,10 @@ public static Connection CreateConnection() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable3.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane3.setViewportView(jTable3);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 850, 120));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 500, 220));
 
         jButton1.setBackground(new java.awt.Color(153, 0, 255));
         jButton1.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
@@ -187,7 +192,7 @@ public static Connection CreateConnection() {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 850, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 500, 40));
 
         jButton2.setBackground(new java.awt.Color(153, 0, 255));
         jButton2.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
@@ -198,18 +203,18 @@ public static Connection CreateConnection() {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 850, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 450, 40));
 
         jButton3.setBackground(new java.awt.Color(153, 0, 255));
         jButton3.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Total Books Details");
+        jButton3.setText(" Books Details");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 850, 40));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 500, 40));
 
         jButton4.setBackground(new java.awt.Color(102, 0, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -221,7 +226,7 @@ public static Connection CreateConnection() {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 110, 40));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, 110, 40));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 510, 10));
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
@@ -233,16 +238,44 @@ public static Connection CreateConnection() {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pie-chart.png"))); // NOI18N
         jLabel1.setText("1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 110, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 30, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bar-chart12.png"))); // NOI18N
         jLabel2.setText("1");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+
+        jTable4.setBackground(new java.awt.Color(51, 51, 51));
+        jTable4.setForeground(new java.awt.Color(255, 255, 255));
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable4);
+
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 450, 220));
+
+        jButton6.setBackground(new java.awt.Color(153, 0, 255));
+        jButton6.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("Students Details");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 450, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -230, 1150, 900));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -220, 1150, 900));
 
         pack();
         setLocationRelativeTo(null);
@@ -303,10 +336,29 @@ public static Connection CreateConnection() {
         e.printStackTrace();
      JOptionPane.showMessageDialog(null, "Database Error lending books: " + e.getMessage());
     }
+
+          }
     
-    
+       public void totalstudents(){
  
-   };     
+  String query = "SELECT *, (SELECT COUNT(*) FROM student) AS total_count FROM student;" ;
+    try (
+            Connection conn = CreateConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+         ResultSet rs = stmt.executeQuery()) {
+ 
+          jTable4.setModel(DbUtils.resultSetToTableModel(rs)); // Set the table model
+        
+          conn.close();
+
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+     JOptionPane.showMessageDialog(null, "Database Error lending books: " + e.getMessage());
+    }
+};
+       
+       
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         lendedbook();
@@ -323,6 +375,10 @@ public static Connection CreateConnection() {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          returnedbook();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    totalstudents();   // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 //CREATED BY MANSOOR or MNS GitHub: MnsDew
     /**
      * @param args the command line arguments
@@ -368,6 +424,7 @@ public static Connection CreateConnection() {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -379,10 +436,12 @@ public static Connection CreateConnection() {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
     // End of variables declaration//GEN-END:variables
 }

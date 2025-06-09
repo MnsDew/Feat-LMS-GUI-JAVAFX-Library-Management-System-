@@ -8,6 +8,7 @@ import java.sql.SQLException;/*
 import javax.swing.JOptionPane;
 import BackEnd.DatabaseConnectionFactory;
 import BackEnd.IDatabaseConnection;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -66,6 +67,8 @@ public class newStudent extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -155,7 +158,7 @@ public class newStudent extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, 100, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 460, 110, 40));
 
         jButton2.setBackground(new java.awt.Color(102, 0, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -170,7 +173,7 @@ public class newStudent extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 480, 100, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 520, 110, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/add-friend.png"))); // NOI18N
         jLabel7.setText("l");
@@ -198,14 +201,43 @@ public class newStudent extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("MV Boli", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel11.setText("All copy rights for MNS , GitHub: MnsDew");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, -1, -1));
+        jLabel11.setText("© 2025 Mansoor Gabali or MNS Github:(MnsDew). All rights reserved. ");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 630, -1, -1));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Lucida Bright", 1, 22)); // NOI18N
         jButton3.setForeground(new java.awt.Color(102, 0, 204));
-        jButton3.setText("ADD NEW STUDENT");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, -1));
+        jButton3.setText("STUDENT MANAGEMENT");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+
+        jButton4.setBackground(new java.awt.Color(102, 0, 255));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\mnsso\\Documents\\NetBeansProjectsNew\\LibraryManagmentSystem1\\src\\assests\\updateee.png")); // NOI18N
+        jButton4.setText("Update");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 110, 40));
+
+        jButton5.setBackground(new java.awt.Color(102, 0, 255));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\mnsso\\Documents\\NetBeansProjectsNew\\LibraryManagmentSystem1\\src\\assests\\delete.png")); // NOI18N
+        jButton5.setText("Delete");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 110, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
@@ -224,7 +256,21 @@ public class newStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        setVisible(false);
+        int result = JOptionPane.showConfirmDialog(
+    this,                              // Parent component (usually 'this')
+    "Are you sure you want to cancel?", // Message
+    "Confirm Cancel",                  // Title
+    JOptionPane.YES_NO_OPTION,         // Option type
+    JOptionPane.QUESTION_MESSAGE       // Message type
+);
+
+if (result == JOptionPane.YES_OPTION) {
+    // User clicked Yes
+    setVisible(false); // or dispose();
+}
+
+     //   setVisible(false);
+         
 //        new home().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -319,6 +365,147 @@ connection2.disconnect();
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    int confirm = JOptionPane.showConfirmDialog(
+    null,                               
+    "Are you sure you want to update the  information of this student?", // Message
+    "Confirm Update",                  // Title
+    JOptionPane.YES_NO_OPTION,         // Option type
+    JOptionPane.QUESTION_MESSAGE       // Message type
+);
+
+if (confirm == JOptionPane.YES_OPTION) {
+    
+    String studentID = jTextField2.getText();
+String name = jTextField3.getText();
+String surename = jTextField4.getText();
+String department = (String) jComboBox1.getSelectedItem();
+String courseCODE = (String) jComboBox2.getSelectedItem();
+
+// Validate required fields
+if (studentID.isEmpty() || name.isEmpty() || surename.isEmpty()) {
+    JOptionPane.showMessageDialog(null, "Please fill in all required fields!", "Input Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+try {
+    // ========== MySQL Connection and Update ==========
+    IDatabaseConnection connection1 = DatabaseConnectionFactory.getConnection("MYSQL");
+    connection1.connect();
+
+    String sql = "UPDATE student SET name = ?, surename = ?, department = ?, courseCODE = ? WHERE studentID = ?"; //By ID 
+    PreparedStatement stmt = connection1.getConnection().prepareStatement(sql);
+    stmt.setString(1, name);
+    stmt.setString(2, surename);
+    stmt.setString(3, department);
+    stmt.setString(4, courseCODE);
+    stmt.setString(5, studentID);
+
+    int rowsUpdated = stmt.executeUpdate();
+
+    if (rowsUpdated > 0) {
+        JOptionPane.showMessageDialog(null, "Student updated successfully in MySQL!");
+    } else {
+        JOptionPane.showMessageDialog(null, "No matching student found in MySQL!");
+    }
+
+    stmt.close();
+    connection1.disconnect();
+
+    // ========== PostgreSQL Connection and Update ==========
+    IDatabaseConnection connection2 = DatabaseConnectionFactory.getConnection("POSTGRESSQL");
+    connection2.connect();
+
+    PreparedStatement stmt2 = connection2.getConnection().prepareStatement(sql);
+    stmt2.setString(1, name);
+    stmt2.setString(2, surename);
+    stmt2.setString(3, department);
+    stmt2.setString(4, courseCODE);
+    stmt2.setString(5, studentID);
+
+    int rowsUpdated2 = stmt2.executeUpdate();
+
+    if (rowsUpdated2 > 0) {
+        JOptionPane.showMessageDialog(null, "Student updated successfully in PostgreSQL!");
+    } else {
+        JOptionPane.showMessageDialog(null, "No matching student found in PostgreSQL!");
+    }
+
+    stmt2.close();
+    connection2.disconnect();
+
+} catch (SQLException e) {
+    JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage());
+}
+emptier();
+}
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String studentID = jTextField2.getText();
+
+if (studentID.isEmpty()) {
+    JOptionPane.showMessageDialog(null, "Please enter the student ID!", "Input Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+// Confirm deletion
+int confirm = JOptionPane.showConfirmDialog(
+    null,
+    "Are you sure you want to delete this student?",
+    "Confirm Deletion",
+    JOptionPane.YES_NO_OPTION
+);
+
+if (confirm == JOptionPane.YES_OPTION) {
+    try {
+        IDatabaseConnection connection = DatabaseConnectionFactory.getConnection("MYSQL");
+        connection.connect();
+        Connection conn = connection.getConnection();
+
+        // 1. Check if the student is currently borrowing books (return_status = 'No')
+        String checkLend = "SELECT * FROM lend WHERE studentID = ?";
+        PreparedStatement checkStmt = conn.prepareStatement(checkLend);
+        checkStmt.setString(1, studentID);
+        ResultSet rs = checkStmt.executeQuery();
+
+        if (rs.next()) {
+            JOptionPane.showMessageDialog(null, "Cannot delete student: borrowing history exists in return and lend records!");
+            conn.close();
+            connection.disconnect();
+            return;
+        }
+
+        // 2. Proceed with deletion
+        String deleteSQL = "DELETE FROM student WHERE studentID = ?";
+        PreparedStatement stmt = conn.prepareStatement(deleteSQL);
+        stmt.setString(1, studentID);
+
+        int rowsDeleted = stmt.executeUpdate();
+
+        if (rowsDeleted > 0) {
+            JOptionPane.showMessageDialog(null, "Student deleted successfully!");
+            emptier(); // Clear fields
+        } else {
+            JOptionPane.showMessageDialog(null, "No student found with that ID.");
+        }
+
+        stmt.close();
+        conn.close();
+        connection.disconnect();
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+    }
+}
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 //CREATED BY MANSOOR or MNS GitHub: MnsDew
     /**
      * @param args the command line arguments
@@ -362,6 +549,8 @@ connection2.disconnect();
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;

@@ -117,8 +117,8 @@ public class login extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 0, 102));
-        jLabel8.setText("CREATEAD BY MNS GitHub: MnsDew ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, -1, -1));
+        jLabel8.setText("© 2025 Mansoor Gabali | MNS70 | Github:(MnsDew). All rights reserved. ");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 560, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/loginCard.png"))); // NOI18N
         jLabel7.setText("l");
@@ -160,6 +160,7 @@ public class login extends javax.swing.JFrame {
         new home().setVisible(true);
         JOptionPane.showMessageDialog(null, "Thanks for Login");
     } else {
+   
         JOptionPane.showMessageDialog(null, "INVALID USERNAME OR PASSWORD!");
     }
      //if you want it from the Database 

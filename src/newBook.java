@@ -69,6 +69,8 @@ public class newBook extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,7 +140,7 @@ public class newBook extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 100, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 470, 100, 40));
 
         jButton2.setBackground(new java.awt.Color(102, 0, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -151,7 +153,7 @@ public class newBook extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 100, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 530, 100, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/BBOKYBOOK.png"))); // NOI18N
         jLabel7.setText("l");
@@ -208,14 +210,38 @@ public class newBook extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("NSimSun", 2, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel13.setText("All copy rights for MNS , GitHub: MnsDew");
+        jLabel13.setText("© 2025 MNS70 | Github:(MnsDew). All rights reserved. ");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, -1, -1));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Lucida Bright", 1, 22)); // NOI18N
         jButton3.setForeground(new java.awt.Color(102, 0, 204));
-        jButton3.setText("ADD NEW BOOK ");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
+        jButton3.setText("BOOK MANAGEMENT");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
+
+        jButton4.setBackground(new java.awt.Color(102, 0, 255));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\mnsso\\Documents\\NetBeansProjectsNew\\LibraryManagmentSystem1\\src\\assests\\updateee.png")); // NOI18N
+        jButton4.setText("Update");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 530, 100, 40));
+
+        jButton5.setBackground(new java.awt.Color(102, 0, 255));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\mnsso\\Documents\\NetBeansProjectsNew\\LibraryManagmentSystem1\\src\\assests\\delete.png")); // NOI18N
+        jButton5.setText("Delete");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 470, 100, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
@@ -230,7 +256,18 @@ public class newBook extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        setVisible(false);
+           int result = JOptionPane.showConfirmDialog(
+    this,                              // Parent component (usually 'this')
+    "Are you sure you want to cancel?", // Message
+    "Confirm Cancel",                  // Title
+    JOptionPane.YES_NO_OPTION,         // Option type
+    JOptionPane.QUESTION_MESSAGE       // Message type
+);
+
+if (result == JOptionPane.YES_OPTION) {
+    // User clicked Yes
+    setVisible(false); // or dispose();
+}
 //        new home().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -294,6 +331,130 @@ try {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+ int confirm = JOptionPane.showConfirmDialog(
+    null,                               
+    "Are you sure you want to update the  information of this student?", // Message
+    "Confirm Update",                  // Title
+    JOptionPane.YES_NO_OPTION,         // Option type
+    JOptionPane.QUESTION_MESSAGE       // Message type
+);
+
+if (confirm == JOptionPane.YES_OPTION) {
+String bookID=jTextField2.getText();
+        String BookName=jTextField3.getText();
+        String Publisher=jTextField4.getText();
+        String publishmentYear = jTextField5.getText();
+        double Price = 0.0;
+        
+        
+try {
+       Price = Double.parseDouble(jTextField1.getText());
+         
+    
+    // Validate required fields
+if (bookID.isEmpty() || BookName.isEmpty() || Publisher.isEmpty() || publishmentYear.isEmpty()) {
+    JOptionPane.showMessageDialog(null, "Please fill in all required fields!", "Input Error", JOptionPane.ERROR_MESSAGE);
+    return;
+    
+    
+}
+   
+    } catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(null, "Invalid price. Please enter a valid number.");
+    return;
+}
+       
+   
+                  try {
+                      
+                          
+                         IDatabaseConnection connectionBook = DatabaseConnectionFactory.getConnection("MYSQL");
+                     connectionBook.connect();
+      
+        String sql = "UPDATE book SET BookName = ?, Publisher = ?, Price = ?, publishmentYear = ? WHERE bookID = ?";
+        
+        PreparedStatement stmt = connectionBook.getConnection().prepareStatement(sql);
+        stmt.setString(1, BookName);
+        stmt.setString(2, Publisher);
+        stmt.setDouble(3, Price);
+        stmt.setString(4, publishmentYear);
+        stmt.setString(5, bookID);
+
+        // Execute the insert query
+        int rowsInserted = stmt.executeUpdate();
+        if (rowsInserted > 0) {
+            JOptionPane.showMessageDialog(null, "Book updated successfully!");
+              emptier(); // to empty all fields
+        } else {
+            JOptionPane.showMessageDialog(null, "No matching book found !");
+        }
+
+        // Close resources
+        stmt.close();
+        connectionBook.disconnect();
+        
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Database Error: " + e.getMessage());
+
+    }
+}    
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String bookID = jTextField2.getText();
+
+if (bookID.isEmpty()) {
+    JOptionPane.showMessageDialog(null, "Please enter the book ID!", "Input Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this book?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+
+if (confirm == JOptionPane.YES_OPTION) {
+    try {
+        IDatabaseConnection connection = DatabaseConnectionFactory.getConnection("MYSQL");
+        connection.connect();
+        Connection conn = connection.getConnection();
+
+        // 1. Check if book is lended
+        String checkLend = "SELECT * FROM lend WHERE bookID = ? AND return_status = 'No'";
+        PreparedStatement checkStmt = conn.prepareStatement(checkLend);
+        checkStmt.setString(1, bookID);
+        ResultSet rs = checkStmt.executeQuery();
+
+        if (rs.next()) {
+            JOptionPane.showMessageDialog(null, "Cannot delete this book: it's currently lended to a student.");
+            conn.close();
+            connection.disconnect();
+            return;
+        }
+
+       String softDeleteSQL = "UPDATE book SET status = 'inactive' WHERE bookID = ?";
+PreparedStatement deleteStmt = conn.prepareStatement(softDeleteSQL);
+deleteStmt.setString(1, bookID);
+int rowsAffected = deleteStmt.executeUpdate();
+
+if (rowsAffected > 0) {
+    JOptionPane.showMessageDialog(null, "Book marked as deleted successfully.");
+    emptier(); // clear fields
+} else {
+    JOptionPane.showMessageDialog(null, "No book found with that ID.");
+}
+
+        deleteStmt.close();
+        conn.close();
+        connection.disconnect();
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+    }
+}
+
+    }//GEN-LAST:event_jButton5ActionPerformed
 //CREATED BY MANSOOR or MNS GitHub: MnsDew
     /**
      * @param args the command line arguments
@@ -337,6 +498,8 @@ try {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

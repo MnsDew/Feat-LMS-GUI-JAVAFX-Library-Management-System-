@@ -1,4 +1,7 @@
 
+import javax.swing.JOptionPane;
+
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -62,9 +65,9 @@ public class home extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setForeground(new java.awt.Color(102, 102, 255));
 
-        jButton1.setBackground(new java.awt.Color(102, 0, 255));
-        jButton1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/add-userr.png"))); // NOI18N
         jButton1.setText("Add Student");
         jButton1.setPreferredSize(new java.awt.Dimension(153, 43));
@@ -74,9 +77,9 @@ public class home extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(102, 50, 255));
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/addBookk.png"))); // NOI18N
         jButton2.setText("Add Book");
         jButton2.setPreferredSize(new java.awt.Dimension(153, 43));
@@ -86,10 +89,10 @@ public class home extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(102, 50, 255));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/chart.png"))); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mnsso\\Documents\\NetBeansProjectsNew\\LibraryManagmentSystem1\\src\\assests\\statistics.png")); // NOI18N
         jButton3.setText("Statastics");
         jButton3.setPreferredSize(new java.awt.Dimension(153, 43));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -113,9 +116,9 @@ public class home extends javax.swing.JFrame {
         jSeparator7.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButton6.setBackground(new java.awt.Color(102, 0, 255));
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
         jButton6.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setForeground(new java.awt.Color(0, 0, 0));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/log-out.png"))); // NOI18N
         jButton6.setText("Log Out");
         jButton6.setPreferredSize(new java.awt.Dimension(153, 43));
@@ -148,9 +151,9 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap(713, Short.MAX_VALUE))
         );
 
-        jButton4.setBackground(new java.awt.Color(102, 50, 255));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/lendBook.png"))); // NOI18N
         jButton4.setText("Lend Book");
         jButton4.setPreferredSize(new java.awt.Dimension(153, 43));
@@ -163,9 +166,9 @@ public class home extends javax.swing.JFrame {
         jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton5.setBackground(new java.awt.Color(102, 0, 255));
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/return.png"))); // NOI18N
         jButton5.setText("Retrun Book");
         jButton5.setPreferredSize(new java.awt.Dimension(153, 43));
@@ -233,7 +236,7 @@ public class home extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1200, 184));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 51));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/libraryLOGO.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mnsso\\Documents\\NetBeansProjectsNew\\LibraryManagmentSystem1\\src\\assests\\aonline-library.png")); // NOI18N
 
         jSeparator12.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator12.setForeground(new java.awt.Color(255, 255, 255));
@@ -306,7 +309,8 @@ public class home extends javax.swing.JFrame {
 
         jSeparator10.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator10.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 710, 650, 20));
+        jSeparator10.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 700, 650, 20));
 
         jLabel1.setFont(new java.awt.Font("Forte", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -317,15 +321,15 @@ public class home extends javax.swing.JFrame {
         jLabel5.setText("-");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 600, 460));
 
-        jLabel6.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Nirmala UI", 2, 8)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
         jLabel6.setText("CREATED BY MANSOOR or MNS GitHub: MnsDew");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 720, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 710, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("All copy rights for MNS or Mansoor, GitHub: MnsDew");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 200, -1, -1));
+        jLabel7.setText("© 2025 Mansoor Gabali | MNS70 | Github:(MnsDew). All rights reserved. ");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 730, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/aNewPic.jpg"))); // NOI18N
         jLabel2.setText("-");
@@ -339,7 +343,21 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         setVisible(false);
+        // setVisible(false);
+        
+        
+             int result = JOptionPane.showConfirmDialog(
+    this,                              // Parent component (usually 'this')
+    "Are you sure you want to log out?", // Message
+    "Confirm Cancel",                  // Title
+    JOptionPane.YES_NO_OPTION,         // Option type
+    JOptionPane.QUESTION_MESSAGE       // Message type
+);
+
+if (result == JOptionPane.YES_OPTION) {
+    // User clicked Yes
+    setVisible(false); // or dispose();
+}
         new login().setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 

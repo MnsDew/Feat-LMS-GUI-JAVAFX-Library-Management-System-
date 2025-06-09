@@ -90,7 +90,6 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -123,7 +122,7 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
 
         jLabel2.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Due To Date");
+        jLabel2.setText("Due Date");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
@@ -141,7 +140,7 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 100, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 110, 40));
 
         jButton2.setBackground(new java.awt.Color(102, 0, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -154,7 +153,7 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 100, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 490, 110, 40));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
@@ -212,8 +211,8 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
 
         jLabel4.setFont(new java.awt.Font("OCR A Extended", 2, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText("All copy rights for MNS , GitHub: MnsDew");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
+        jLabel4.setText("© 2025 Mansoor Gabali|MNS Github:(MnsDew). All rights reserved. ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 480, -1));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Lucida Bright", 1, 22)); // NOI18N
@@ -225,16 +224,24 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
         jLabel5.setText("0");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, -240, 1210, 900));
 
-        jButton4.setText("jButton4");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, -1));
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        setVisible(false);
-//        new home().setVisible(true);
+    int result = JOptionPane.showConfirmDialog(
+    this,                              // Parent component (usually 'this')
+    "Are you sure you want to cancel?", // Message
+    "Confirm Cancel",                  // Title
+    JOptionPane.YES_NO_OPTION,         // Option type
+    JOptionPane.QUESTION_MESSAGE       // Message type
+);
+
+if (result == JOptionPane.YES_OPTION) {
+    // User clicked Yes
+    setVisible(false); // or dispose();
+}
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -246,19 +253,20 @@ java.util.Date dueUtilDate = jDateChooser2.getDate();
 String bookID = jTextField1.getText();
 String studentID = jTextField2.getText();
 
-// Validate null dates
+//do not leave the dates empty,  by MNS
 if (lendUtilDate == null || dueUtilDate == null) {
     JOptionPane.showMessageDialog(null, "Please select both lend and due dates.");
     return;
 }
 
-// Convert to SQL date
+// We put , this to convert to SQL date by LibroTrack team.
 java.sql.Date lendDate = new java.sql.Date(lendUtilDate.getTime());
 java.sql.Date dueDate = new java.sql.Date(dueUtilDate.getTime());
 
-// Compare whole date objects
+// the great logic I put MNS , which means: NO RETUREN DATE BEFORE LEND DATE , YOU CANNOT PUT THE RETURN DATE BEFORE LEND DATE
+
 if (dueDate.before(lendDate)) {
-    JOptionPane.showMessageDialog(null, "Due date must be after lend date.");
+    JOptionPane.showMessageDialog(null, "Due date must be after lend date.");//LOGICALLY!
     return;
 }
 
@@ -283,7 +291,7 @@ if (dueDate.before(lendDate)) {
                     return;
                 }
       // I used this method to be strong connection without any hacking or attaking
-      // Use PreparedStatement to prevent SQL injection!!!
+      // I Use PreparedStatement to prevent SQL injection!!!
      
       
         String sql = "INSERT INTO lend (bookID, studentID, lend_date, due_date , return_status) VALUES (?, ?, ?, ?, 'No')";
@@ -294,14 +302,15 @@ if (dueDate.before(lendDate)) {
         stmt.setDate(3,  lendDate);
         stmt.setDate(4,  dueDate);
         
+        
         // Execute the insert query
        
         int rowsInserted = stmt.executeUpdate();
         if (rowsInserted > 0) {
             JOptionPane.showMessageDialog(null, "Book Lended successfully!");
-             emptier(); // to empty all fields
+             emptier(); // my emptier() function to empty all fields
         } else {
-            JOptionPane.showMessageDialog(null, "Error adding Book.");
+            JOptionPane.showMessageDialog(null, "Error lending or issuing Book.");
         }
 
         // Close resources
@@ -364,7 +373,6 @@ if (dueDate.before(lendDate)) {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;

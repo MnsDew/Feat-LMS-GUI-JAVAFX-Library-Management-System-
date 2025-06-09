@@ -248,8 +248,8 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
 
         jLabel14.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel14.setText("All copy rights for MNS , GitHub: MnsDew");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, -1, -1));
+        jLabel14.setText("© 2025 MNS70 | Github:(MnsDew). All rights reserved. ");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Lucida Bright", 1, 22)); // NOI18N
@@ -266,7 +266,19 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        setVisible(false);
+       int result = JOptionPane.showConfirmDialog(
+    this,                              // Parent component (usually 'this')
+    "Are you sure you want to cancel?", // Message
+    "Confirm Cancel",                  // Title
+    JOptionPane.YES_NO_OPTION,         // Option type
+    JOptionPane.QUESTION_MESSAGE       // Message type
+);
+
+if (result == JOptionPane.YES_OPTION) {
+    // User clicked Yes
+    setVisible(false); // or dispose();
+}
+
 //        new home().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -275,16 +287,17 @@ try(PreparedStatement stmt = conn.prepareStatement(query)){
  String bookID = jTextField1.getText();
 String studentID = jTextField2.getText();
 
-// SQL query to update the return status
+// I Put here SQL query to update the return status MNS
+//also return date now , it means the return date will be saved in my DB or database.
 String query = "UPDATE lend SET return_status = 'Yes' , return_date = NOW() WHERE bookID = ? AND studentID = ? AND return_status = 'No'";
 
 try {
-    // Establish database connection
+    // Let's Establish database connection like this way my way MANSOOR 
     IDatabaseConnection connectionReturn = DatabaseConnectionFactory.getConnection("MYSQL");
     connectionReturn.connect();
-    Connection conn = connectionReturn.getConnection();  // FIXED: Properly retrieving connection
+    Connection conn = connectionReturn.getConnection();  
 
-    // Check if book and student exist before proceeding
+    // HERE I USED MNS , TO CHECK THE BOOK AND STUDENT EXIST
     if (!doesBookExist(bookID, conn)) {
         JOptionPane.showMessageDialog(null, "Error: Book ID does not exist!");
         return;
@@ -295,13 +308,13 @@ try {
         return;
     }
 
-    // Prepare SQL statement
+    // I used here   (Prepared SQL statement) I comment to let the team now 
     try (PreparedStatement stmt = conn.prepareStatement(query)) {
         stmt.setString(1, bookID);
         stmt.setString(2, studentID);
 
-        // Execute update query
-        int rowsUpdated = stmt.executeUpdate();  // FIXED: Removed executeQuery()
+        // I put  update query to update the return status from no to yes by LibroTrack team
+        int rowsUpdated = stmt.executeUpdate();  
         
         if (rowsUpdated > 0) {
             JOptionPane.showMessageDialog(null, "Book Returned successfully!");
@@ -313,7 +326,7 @@ try {
         }
     }
 
-    // Close resources
+   //do not forget close the connection , to not be all time open to others! by LibroTrack Team.
     conn.close();
     connectionReturn.disconnect();
 
@@ -341,24 +354,25 @@ try {
 String studentID = jTextField2.getText();
 
 try {
-    // Establish connection to the database
+    // I did the same here for creating a connection to the database ... by Mns
     IDatabaseConnection connSearch = DatabaseConnectionFactory.getConnection("MYSQL");
     connSearch.connect();
     Connection conn = connSearch.getConnection();
     
-    // Check if the book exists
+    // Functions I created on the top
     if (!doesBookExist(bookID, conn)) {
         JOptionPane.showMessageDialog(null, "Error: Book ID does not exist!");
-        return; // Exit if the book doesn't exist
+        return;
+        //if book not there , so out or exit by MNS!
     }
     
-    // Check if the student exists
+     
     if (!doesStudentExist(studentID, conn)) {
         JOptionPane.showMessageDialog(null, "Error: Student ID does not exist!");
-        return; // Exit if the student doesn't exist
+        return; // same like top
     }
     
-    // SQL query to retrieve the lend date and due date for the book and student
+    // The SQL query I used  to retrieve the lend date and due date for the book and student by MNS70...
     String query = "SELECT lend_date, due_date FROM lend WHERE bookID = ? AND studentID = ? AND return_status = 'No'";
     try (PreparedStatement stmt = conn.prepareStatement(query)) {
         stmt.setString(1, bookID);
@@ -366,13 +380,15 @@ try {
         
         ResultSet rs = stmt.executeQuery();
         
-        // Check if there's a result (the book has been lent to the student)
+        // You can see the " check if there's a result (the book has been lent to the student) 
+        //to not mismatch with another student or something by MNNSSS
         if (rs.next()) {
-            // Display the lend date and due date in the respective fields
+            // Display the dates down by THE TEAM
+                
             jTextField3.setText(rs.getString("lend_date"));
             jTextField4.setText(rs.getString("due_date"));
             
-           //HERE THE CHECKS TO NOT EDIT THE DATE WHICH COMES FORM DATABASE 
+           //no dates! are editable , from the database , correct logic by team or MNS70
            jTextField3.setEditable(false);
             jTextField4.setEditable(false);
             
@@ -381,8 +397,8 @@ try {
         } else {
             JOptionPane.showMessageDialog(null, "Error: No active lending record found for this book and student.");
         }
+         
         
-        // Close resources
         stmt.close();
         conn.close();
         connSearch.disconnect();
