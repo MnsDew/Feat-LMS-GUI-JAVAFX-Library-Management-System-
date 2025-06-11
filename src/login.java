@@ -112,7 +112,6 @@ public class login extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("CREATED BY MANSOOR or MNS GitHub: MnsDew ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 760, 300, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
@@ -128,10 +127,11 @@ public class login extends javax.swing.JFrame {
         jLabel9.setText("CREATED BY MANSOOR or MNS GitHub: MnsDew ");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, -1, -1));
 
+        jLabel10.setBackground(new java.awt.Color(102, 102, 102));
         jLabel10.setFont(new java.awt.Font("Nirmala UI", 2, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("All copy rights for MNS , GitHub: MnsDew");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 740, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 770, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/libraryy.jpg"))); // NOI18N
         jLabel4.setText("k");
