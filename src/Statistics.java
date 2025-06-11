@@ -1,5 +1,10 @@
 
-import java.sql.*;
+import java.sql.*; 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+ import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 import java.sql.SQLException;
 import net.proteanit.sql.DbUtils;
 /*
@@ -27,14 +32,16 @@ public class Statistics extends javax.swing.JFrame {
      */
     public Statistics() {
         initComponents();
-        lendedbook();
-         returnedbook();
-         totalbooks();
-         totalstudents();
+//         StudentsBooksPieChart();
+//         LendingStatsChart();
+//        lendedbook();
+//         returnedbook();
+//         totalbooks();
+//         totalstudents();
            this.setLocationRelativeTo(null);
         setExtendedState(ABORT);
         }
-         
+     
        
 public static Connection CreateConnection() {
     try {
@@ -58,30 +65,92 @@ public static Connection CreateConnection() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jButton5 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
         jButton6 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+
+        jTable2.setBackground(new java.awt.Color(51, 51, 51));
+        jTable2.setForeground(new java.awt.Color(255, 255, 255));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jTable4.setBackground(new java.awt.Color(51, 51, 51));
+        jTable4.setForeground(new java.awt.Color(255, 255, 255));
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable4);
+
+        jTable3.setBackground(new java.awt.Color(51, 51, 51));
+        jTable3.setForeground(new java.awt.Color(255, 255, 255));
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable3.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane3.setViewportView(jTable3);
+
+        jTable1.setBackground(new java.awt.Color(51, 51, 51));
+        jTable1.setForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -131,90 +200,27 @@ public static Connection CreateConnection() {
         jLabel4.setText("l");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 30, -1, -1));
 
-        jTable1.setBackground(new java.awt.Color(51, 51, 51));
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 500, 180));
-
-        jTable2.setBackground(new java.awt.Color(51, 51, 51));
-        jTable2.setForeground(new java.awt.Color(255, 255, 255));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 450, 180));
-
-        jTable3.setBackground(new java.awt.Color(51, 51, 51));
-        jTable3.setForeground(new java.awt.Color(255, 255, 255));
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable3.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane3.setViewportView(jTable3);
-
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 500, 220));
-
         jButton1.setBackground(new java.awt.Color(153, 0, 255));
         jButton1.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Returned Book Details");
+        jButton1.setText("Lent Books Details & Returned Book Details");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 500, 40));
-
-        jButton2.setBackground(new java.awt.Color(153, 0, 255));
-        jButton2.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Lent Books Details");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 450, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 500, 40));
 
         jButton3.setBackground(new java.awt.Color(153, 0, 255));
         jButton3.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText(" Books Details");
+        jButton3.setText("Students Details & Books Details");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 500, 40));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 500, 40));
 
         jButton4.setBackground(new java.awt.Color(102, 0, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -235,137 +241,218 @@ public static Connection CreateConnection() {
         jButton5.setText("Statistics");
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, -1, -1));
 
+        jButton2.setBackground(new java.awt.Color(153, 0, 255));
+        jButton2.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 390, 60, 40));
+
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pie-chart.png"))); // NOI18N
         jLabel1.setText("1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 30, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bar-chart12.png"))); // NOI18N
         jLabel2.setText("1");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
-
-        jTable4.setBackground(new java.awt.Color(51, 51, 51));
-        jTable4.setForeground(new java.awt.Color(255, 255, 255));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane4.setViewportView(jTable4);
-
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 450, 220));
 
         jButton6.setBackground(new java.awt.Color(153, 0, 255));
         jButton6.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Students Details");
+        jButton6.setText("6");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 450, 40));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 50, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assests/forall.jpeg"))); // NOI18N
         jLabel5.setText("0");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -220, 1150, 900));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-      public void lendedbook(){
-//    String query = "SELECT lend.bookID, student.name, lend.lend_date, lend.due_date FROM lend JOIN student ON lend.studentID = student.studentID WHERE return_status = 'No' ";
-  String query = "SELECT lend.studentID,student.name,lend.bookID,book.BookName,lend.lend_date,lend.due_date from student inner join book inner join lend where book.bookID = lend.bookID and student.studentID = lend.studentID and lend.return_status = 'No' " ;
-    try (
-            Connection conn = CreateConnection();
-            PreparedStatement stmt = conn.prepareStatement(query);
-         ResultSet rs = stmt.executeQuery()) {
- 
-          jTable2.setModel(DbUtils.resultSetToTableModel(rs)); // Set the table model
-        
-          conn.close();
-
-        
-    } catch (SQLException e) {
-        e.printStackTrace();
-     JOptionPane.showMessageDialog(null, "Database Error lending books: " + e.getMessage());
-    }
-      }
-    
-          public void returnedbook(){
-//    String query = "SELECT lend.bookID, student.name, lend.lend_date, lend.due_date FROM lend JOIN student ON lend.studentID = student.studentID WHERE return_status = 'No' ";
-  String query = "SELECT lend.studentID,student.name,lend.bookID,book.BookName,lend.lend_date,lend.due_date from student inner join book inner join lend where book.bookID = lend.bookID and student.studentID = lend.studentID and lend.return_status = 'YES' " ;
-    try (
-            Connection conn = CreateConnection();
-            PreparedStatement stmt = conn.prepareStatement(query);
-         ResultSet rs = stmt.executeQuery()) {
- 
-          jTable1.setModel(DbUtils.resultSetToTableModel(rs)); // Set the table model
-        
-          conn.close();
-
-        
-    } catch (SQLException e) {
-        e.printStackTrace();
-     JOptionPane.showMessageDialog(null, "Database Error lending books: " + e.getMessage());
-    }
-          
-          }
-          public void totalbooks(){
-//    String query = "SELECT lend.bookID, student.name, lend.lend_date, lend.due_date FROM lend JOIN student ON lend.studentID = student.studentID WHERE return_status = 'No' ";
-  String query = "SELECT *, (SELECT COUNT(*) FROM book) AS total_count FROM book;" ;
-    try (
-            Connection conn = CreateConnection();
-            PreparedStatement stmt = conn.prepareStatement(query);
-         ResultSet rs = stmt.executeQuery()) {
- 
-          jTable3.setModel(DbUtils.resultSetToTableModel(rs)); // Set the table model
-        
-          conn.close();
-
-        
-    } catch (SQLException e) {
-        e.printStackTrace();
-     JOptionPane.showMessageDialog(null, "Database Error lending books: " + e.getMessage());
-    }
-
-          }
-    
-       public void totalstudents(){
- 
-  String query = "SELECT *, (SELECT COUNT(*) FROM student) AS total_count FROM student;" ;
-    try (
-            Connection conn = CreateConnection();
-            PreparedStatement stmt = conn.prepareStatement(query);
-         ResultSet rs = stmt.executeQuery()) {
- 
-          jTable4.setModel(DbUtils.resultSetToTableModel(rs)); // Set the table model
-        
-          conn.close();
-
-
-    } catch (SQLException e) {
-        e.printStackTrace();
-     JOptionPane.showMessageDialog(null, "Database Error lending books: " + e.getMessage());
-    }
-};
+//    
+//      public void lendedbook(){
+////    String query = "SELECT lend.bookID, student.name, lend.lend_date, lend.due_date FROM lend JOIN student ON lend.studentID = student.studentID WHERE return_status = 'No' ";
+//  String query = "SELECT lend.studentID,student.name,lend.bookID,book.BookName,lend.lend_date,lend.due_date from student inner join book inner join lend where book.bookID = lend.bookID and student.studentID = lend.studentID and lend.return_status = 'No' " ;
+//    try (
+//            Connection conn = CreateConnection();
+//            PreparedStatement stmt = conn.prepareStatement(query);
+//         ResultSet rs = stmt.executeQuery()) {
+// 
+//          jTable2.setModel(DbUtils.resultSetToTableModel(rs)); // Set the table model
+//        
+//          conn.close();
+//
+//        
+//    } catch (SQLException e) {
+//        e.printStackTrace();
+//     JOptionPane.showMessageDialog(null, "Database Error lending books: " + e.getMessage());
+//    }
+//      }
+//    
+//          public void returnedbook(){
+////    String query = "SELECT lend.bookID, student.name, lend.lend_date, lend.due_date FROM lend JOIN student ON lend.studentID = student.studentID WHERE return_status = 'No' ";
+//  String query = "SELECT lend.studentID,student.name,lend.bookID,book.BookName,lend.lend_date,lend.due_date from student inner join book inner join lend where book.bookID = lend.bookID and student.studentID = lend.studentID and lend.return_status = 'YES' " ;
+//    try (
+//            Connection conn = CreateConnection();
+//            PreparedStatement stmt = conn.prepareStatement(query);
+//         ResultSet rs = stmt.executeQuery()) {
+// 
+//          jTable1.setModel(DbUtils.resultSetToTableModel(rs)); // Set the table model
+//        
+//          conn.close();
+//
+//        
+//    } catch (SQLException e) {
+//        e.printStackTrace();
+//     JOptionPane.showMessageDialog(null, "Database Error lending books: " + e.getMessage());
+//    }
+//          
+//          }
+//          public void totalbooks(){
+////    String query = "SELECT lend.bookID, student.name, lend.lend_date, lend.due_date FROM lend JOIN student ON lend.studentID = student.studentID WHERE return_status = 'No' ";
+//  String query = "SELECT *, (SELECT COUNT(*) FROM book) AS total_count FROM book;" ;
+//    try (
+//            Connection conn = CreateConnection();
+//            PreparedStatement stmt = conn.prepareStatement(query);
+//         ResultSet rs = stmt.executeQuery()) {
+// 
+//          jTable3.setModel(DbUtils.resultSetToTableModel(rs)); // Set the table model
+//        
+//          conn.close();
+//
+//        
+//    } catch (SQLException e) {
+//        e.printStackTrace();
+//     JOptionPane.showMessageDialog(null, "Database Error lending books: " + e.getMessage());
+//    }
+//
+//          }
+//    
+//       public void totalstudents(){
+// 
+//  String query = "SELECT *, (SELECT COUNT(*) FROM student) AS total_count FROM student;" ;
+//    try (
+//            Connection conn = CreateConnection();
+//            PreparedStatement stmt = conn.prepareStatement(query);
+//         ResultSet rs = stmt.executeQuery()) {
+// 
+//          jTable4.setModel(DbUtils.resultSetToTableModel(rs)); // Set the table model
+//        
+//          conn.close();
+//
+//
+//    } catch (SQLException e) {
+//        e.printStackTrace();
+//     JOptionPane.showMessageDialog(null, "Database Error lending books: " + e.getMessage());
+//    }
+//};
        
-       
+    public void LendingStatsChart() {
+        setTitle("Lending Statistics Bar Chart");
+        setSize(400, 400);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+                setExtendedState(ABORT);
+        setLocationRelativeTo(jButton2);
+        new Statistics().setVisible(true);
+        // Create dataset from DB
+        DefaultCategoryDataset dataset = createDataset();
 
+        // Create chart
+        JFreeChart barChart = ChartFactory.createBarChart(
+                "Library Lending Statistics",
+                "Status",
+                "Count",
+                dataset
+        );
+
+        ChartPanel panel = new ChartPanel(barChart);
+        setContentPane(panel);
+    }
+    private DefaultCategoryDataset createDataset() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        int lended = 0;
+        int returned = 0;
+
+        String queryLend = "SELECT COUNT(*) FROM lend WHERE return_status = 'No'";
+        String queryReturned = "SELECT COUNT(*) FROM lend WHERE return_status = 'Yes'";
+ try (
+                Connection conn = 
+                        CreateConnection();
+                PreparedStatement stmtLend = conn.prepareStatement(queryLend);
+                PreparedStatement stmtReturned = conn.prepareStatement(queryReturned);
+        ) {
+            ResultSet rs1 = stmtLend.executeQuery();
+            if (rs1.next()) lended = rs1.getInt(1);
+
+            ResultSet rs2 = stmtReturned.executeQuery();
+            if (rs2.next()) returned = rs2.getInt(1);
+
+            dataset.addValue(lended, "Books", "Lended");
+            dataset.addValue(returned, "Books", "Returned");
+   } catch (SQLException e) {
+            e.printStackTrace();  };
+            return dataset;
+    }; 
+ 
+    public void StudentsBooksPieChart() {
+        setTitle("Students vs Books Pie Chart");
+        setSize(400, 400);
+        
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(jButton6);
+             setExtendedState(ABORT);
+        new Statistics().setVisible(true);
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        int totalStudents = 0;
+        int totalBooks = 0;
+ try (
+                Connection conn = CreateConnection();
+                Statement stmt = conn.createStatement()
+        ) {
+            ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) FROM student");
+            if (rs1.next()) totalStudents = rs1.getInt(1);
+
+            ResultSet rs2 = stmt.executeQuery("SELECT COUNT(*) FROM book");
+            if (rs2.next()) totalBooks = rs2.getInt(1);
+
+            dataset.setValue("Students", totalStudents);
+            dataset.setValue("Books", totalBooks);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        JFreeChart chart = ChartFactory.createPieChart(
+                "Students vs Books",
+                dataset,
+                true,
+                true,
+                false
+        );
+
+        ChartPanel panel = new ChartPanel(chart);
+        setContentPane(panel);
+    }
+     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        lendedbook();
+//        lendedbook(); 
+LendingStatsChart();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        totalbooks();
+//        totalbooks();
+ StudentsBooksPieChart();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -373,11 +460,12 @@ public static Connection CreateConnection() {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         returnedbook();
+//         returnedbook();
+LendingStatsChart();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    totalstudents();   // TODO add your handling code here:
+//    totalstudents();   // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 //CREATED BY MANSOOR or MNS GitHub: MnsDew
     /**
@@ -439,6 +527,7 @@ public static Connection CreateConnection() {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
